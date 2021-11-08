@@ -1,18 +1,35 @@
-import Welcome from '../components/Welcome'
-import Page from '../components/Page'
+import Layout from '../components/Layout'
+import Login from '../components/Login'
+import Dashboard from '../components/Dashboard'
+import FileManager from '../components/FileManager'
 
 export default [{
     path: '/',
-    component: Welcome,
-    name: 'Welcome',
+    component: Layout,
+    name: 'Layout',
     meta: {
         permission: []
-    }
-},
-{
-    path: '/page',
-    component: Page,
-    name: 'Page',
+    },
+    children: [{
+        path: '/',
+        component: Dashboard,
+        name: 'Dashboard',
+        meta: {
+            permission: []
+        }
+    },
+    {
+        path: '/file-manager',
+        component: FileManager,
+        name: 'FileManager',
+        meta: {
+            permission: []
+        }
+    }]
+},{
+    path: '/login',
+    component: Login,
+    name: 'Login',
     meta: {
         permission: []
     }
