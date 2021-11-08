@@ -57,6 +57,7 @@ class AutoGetExternalIP extends Command
                 $config->key = 'external_ip';
                 $config->value = $ip;
                 $config->save();
+                $this->writeToFireStore($ip);
             }
         }
         catch(\Exception $e){
